@@ -123,6 +123,11 @@ public:
 	 */
 	bool inline isFull() const;
 
+    /**
+     * Returns the average of elements.
+     */
+    T inline avg() const;
+
 	/**
 	 * Resets the buffer to a clean status, making all buffer positions available.
 	 */

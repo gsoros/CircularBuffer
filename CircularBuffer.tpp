@@ -117,10 +117,18 @@ bool inline CircularBuffer<T,S,IT>::isFull() const {
 	return count == capacity;
 }
 
-template<typename T, size_t S, typename IT>
-void inline CircularBuffer<T,S,IT>::clear() {
-	head = tail = buffer;
-	count = 0;
+template <typename T, size_t S, typename IT>
+T inline CircularBuffer<T, S, IT>::avg() const {
+    T avg = (T)0;
+    for (IT i = 0; i < count; i++)
+        avg += buffer[i] / count;
+    return avg;
+}
+
+template <typename T, size_t S, typename IT>
+void inline CircularBuffer<T, S, IT>::clear() {
+    head = tail = buffer;
+    count = 0;
 }
 
 #ifdef CIRCULAR_BUFFER_DEBUG
